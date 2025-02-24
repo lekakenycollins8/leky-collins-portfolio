@@ -1,0 +1,81 @@
+---
+title: "What Happens When You Type https://www.google.com in Your Browser and Hit Enter"
+publishedAt: "2024-04-11"
+image: "/images/blog/blog3.jpg"
+summary: "Ever wondered what happens behind the scenes when you enter a URL in your browser? Let's explore the journey from DNS resolution to database interaction."
+tag: "Networking"
+---
+
+Many people are familiar with using the internet, especially the Google search engine, where you simply type a domain name, such as `https://musicplaylist.com`, and you are served a web page containing your favorite music playlists. However, not everyone knows what happens behind the scenes when the domain name is loaded in a browser.
+
+This blog aims to dive deeper into the key processes that take place, including **DNS requests, TCP/IP, firewalls, HTTPS/SSL, load balancing, web servers, application servers, and databases**—all crucial aspects of a software application.
+
+## DNS Resolution: Finding the IP Address
+
+When you open a browser (e.g., Chrome, Microsoft Edge), type `https://www.google.com`, and hit enter, the browser first sends a request to a **DNS resolver** (provided by your ISP, or Internet Service Provider). 
+
+The **Domain Name System (DNS)** acts as the internet’s address book, translating human-readable domain names (`google.com`) into machine-readable IP addresses (e.g., `12.345.34.22`). Here’s what happens:
+
+1. The **DNS resolver** checks its cache for a recent resolution of `google.com`.
+2. If not found, it queries **DNS root servers**, which provide information about the **Top-Level Domain (TLD) servers** responsible for `.com` domains.
+3. The **TLD servers** then direct the resolver to Google’s **name servers**.
+4. The resolver queries Google’s **name server**, which provides the IP address of `google.com`.
+5. The IP address is returned to the browser and cached for future use.
+
+## Establishing a TCP Connection
+
+After obtaining the IP address, the browser attempts to establish a **TCP (Transmission Control Protocol) connection** with the web server. This process involves:
+
+- **Sending and receiving data packets** between the browser and the web server.
+- A **three-way handshake** to ensure a reliable connection.
+
+## Secure Communication: SSL/TLS Handshake
+
+Since `https://www.google.com` uses HTTPS, the browser and web server perform an **SSL/TLS handshake** to:
+
+1. Exchange encryption details.
+2. Validate the web server’s identity.
+3. Ensure all communication is **secure and encrypted**.
+
+## Load Balancing & Firewalls
+
+Given Google’s massive traffic, a **load balancer** distributes incoming requests across multiple web servers. 
+
+Before reaching a web server, requests may also **pass through a firewall**, which:
+
+- **Monitors and controls network traffic** based on security rules.
+- **Blocks malicious traffic** to prevent cyberattacks.
+
+## Processing the HTTP Request
+
+Once the connection is established, the browser sends an **HTTP request** to the web server. 
+
+- Since we requested `https://www.google.com`, the browser typically sends a **GET request**.
+- The **web server** (e.g., Apache, Nginx) processes the request and retrieves the necessary resources (HTML, CSS, JavaScript) to render the web page.
+
+## Dynamic Content: The Role of Application Servers
+
+If the user requests a **dynamic resource** (e.g., search results), the **application server** handles it. The process includes:
+
+1. **Executing business logic** (e.g., handling search queries).
+2. **Fetching data from the database** if needed.
+3. **Generating dynamic content** before sending it back to the web server.
+
+## Database Interaction
+
+If data is required (e.g., user preferences, search history), the **application server** queries a **Database Management System (DBMS)** such as **MySQL or PostgreSQL**.
+
+- SQL queries fetch, insert, or update records in the database.
+- The application server **processes the retrieved data** and formats it into a response.
+
+## Delivering the Response to the Browser
+
+1. The **application server sends data** back to the web server.
+2. The **web server forwards the response** to the browser.
+3. The **browser renders the content**, displaying `https://www.google.com` to the user.
+
+## Conclusion
+
+Understanding the behind-the-scenes operations when loading a website reveals the **complexity of the internet’s infrastructure**. From **DNS resolution** to **SSL encryption, load balancing, web servers, and database interactions**, each step ensures **security, reliability, and efficiency** in delivering web pages.
+
+Next time you type a URL into your browser, take a moment to appreciate the magic of the internet—**a system of protocols, servers, and technologies working together seamlessly** to bring content to your screen!

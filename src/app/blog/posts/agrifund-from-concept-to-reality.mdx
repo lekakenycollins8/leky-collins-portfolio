@@ -1,0 +1,56 @@
+---
+title: "From Concept to Reality: Creating the AgriFund Web Platform"
+publishedAt: "2024-06-12"
+image: "/images/blog/blog2.jpg"
+summary: "AgriFund is a transformative project designed to connect farmers with investors, facilitating agribusiness ventures."
+tag: "Development"
+---
+
+AgriFund is a transformative project designed to connect farmers with investors, facilitating agribusiness ventures. This project, developed by aspiring Full Stack developer Lekakeny Collins (that’s me!), aims to provide a seamless and valuable user experience. Working on AgriFund has been a challenging yet rewarding journey, allowing me to delve deep into both back-end and front-end development. The project emphasizes simplicity in its user interface while providing rich value to users.
+
+## The Birth of AgriFund
+
+AgriFund was born from the chaos of trying to find the perfect project idea. I had brainstormed and researched multiple concepts, but none of them sparked the excitement or substance I was looking for. One day, during a random conversation with a peer about the challenges of learning software engineering at ALX while juggling personal lives, I confided that I was stuck between several ideas and couldn’t decide which one to pursue.
+
+The discussion shifted to how small farmers, brimming with ideas and agribusiness projects, struggle to scale their activities due to a lack of funding. My peer shared his own experience with snail farming and how his expansion plans were hindered by insufficient funds. That’s when the idea struck me: if farmers lack funding, why not create a platform where they can showcase their projects and attract potential investors interested in low-risk agricultural ventures? Suddenly, AgriFund became an obsession, and I knew this was the project I had to tackle.
+
+## Developing the Platform
+
+The platform aims to support the agricultural community by facilitating funding opportunities, thereby enabling farmers to expand and sustain their agribusiness. AgriFund was built using the **Django framework** for back-end development, including database design and management of project listings, loan applications, and investor interests.
+
+### Key Features:
+- **Project Creation & Loan Applications**: Farmers can list their projects and apply for funding.
+- **Investor Interest System**: Investors can browse projects, view details, and express interest.
+- **Email Notifications**: When an investor expresses interest, the farmer receives an email notification with investor details for further communication.
+
+Django’s powerful form-handling capabilities allowed me to implement project creation, loan application, and investor interest forms efficiently. Additionally, I used Django **viewsets** to create API endpoints for external interactions. The front-end was designed using **HTML and Bootstrap CSS** to ensure a responsive and user-friendly experience.
+
+## Challenges and Breakthroughs
+
+Since I had previously worked with Flask, transitioning to Django was a learning curve. However, I quickly realized Django’s strengths in structuring and simplifying development. One major hurdle I encountered was implementing **email notifications using SMTP**. Despite following multiple tutorials, I struggled with receiving email notifications due to a **variable reference error**. After hours of debugging, I finally corrected the mistake, and the email system worked flawlessly. This experience reinforced the importance of **attention to detail and resilience** in software development.
+
+<CodeBlock className="my-24"
+    compact
+    codeInstances={[
+        {
+            code: 'EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"\nEMAIL_HOST = "smtp.example.com"\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True\nEMAIL_HOST_USER = "your-email@example.com"\nEMAIL_HOST_PASSWORD = "your-password"',
+            label: "Django Email Setup",
+            language: "python"
+        },
+    ]}
+    copyButton
+/>
+
+## Lessons Learned
+
+Building AgriFund deepened my appreciation for **back-end development**. The unseen logic that powers web applications is fascinating, and I gained a deeper understanding of how technology solves real-world problems. That said, I now truly respect **front-end developers**—bringing back-end logic to life with a beautiful UI is definitely an art that deserves recognition!
+
+## Looking Ahead
+
+Reflecting on my journey from concept to the AgriFund platform, I see a promising path ahead. While there is still work to be done, I am proud to contribute to the agricultural community. I can finally call myself a **developer**, but in reality, I’m just a person passionate about using **technology as a tool for change**.
+
+If you’re interested in my work or want to connect, check out the **AgriFund project**:
+
+🔗 **[AgriFund Landing Page](https://lekakenycollins8.github.io/AgriFund_LandingPage/)**
+
+Let’s make a difference together with technology!
