@@ -14,13 +14,14 @@ const person = {
 
 const newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Get in Touch with {person.firstName}</>,
   description: (
     <>
-      I occasionally write about web development, technology, and share thoughts and experiences on my journey in software development and career.
+      Have a question, project idea, or just want to connect? Feel free to reach out, and I'll get back to you as soon as possible.
     </>
   ),
 };
+
 
 const social = [
   // Links are automatically displayed.
