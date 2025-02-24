@@ -5,7 +5,7 @@ import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person, newsletter } from "@/app/resources/content";
-import ContactForm from "@/components/ContactForm";
+import { ContactForm } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 
 export async function generateMetadata() {

@@ -72,7 +72,7 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactFormProps }) =>
         <Flex fillWidth maxWidth={40} gap="8">
           <Input id="name "name="name" label="Your Name" required onChange={handleChange} value={formData.name} />
           <Input id="email" name="email" type="email" label="Your Email" required onChange={handleChange} value={formData.email} />
-          <Textarea id="message" name="message" label="Your Message" required onChange={handleChange} value={formData.message} />
+          <Textarea id="message" name="message" label="Your Message" required onChange={handleChange} value={formData.message} style={{ position: "relative", maxWidth: 50}} />
           <Button type="submit" size="m" fillWidth>
             Send Message
           </Button>
