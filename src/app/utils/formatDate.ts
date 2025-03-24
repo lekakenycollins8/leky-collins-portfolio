@@ -1,36 +1,48 @@
-export function formatDate(date: string, includeRelative = false) {
+export function formatDate(date: string = new Date().toISOString().split("T")[0], includeRelative = false) {
   const currentDate = new Date();
 
+  // Ensure date format consistency
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
   }
 
   const targetDate = new Date(date);
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  const daysAgo = currentDate.getDate() - targetDate.getDate();
-
-  let formattedDate = "";
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = "Today";
+  
+  if (isNaN(targetDate.getTime())) {
+    return "Invalid Date";
   }
 
+  // Compute time differences in milliseconds
+  const diffInMs = currentDate.getTime() - targetDate.getTime();
+  const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
+
+  let formattedDate = "Today";
+
+  if (diffInDays > 0) {
+    if (diffInDays >= 365) {
+      formattedDate = `${Math.floor(diffInDays / 365)}y ago`;
+    } else if (diffInDays >= 30) {
+      formattedDate = `${Math.floor(diffInDays / 30)}mo ago`;
+    } else {
+      formattedDate = `${diffInDays}d ago`;
+    }
+  } else if (diffInDays < 0) {
+    const futureDays = Math.abs(diffInDays);
+    if (futureDays >= 365) {
+      formattedDate = `in ${Math.floor(futureDays / 365)}y`;
+    } else if (futureDays >= 30) {
+      formattedDate = `in ${Math.floor(futureDays / 30)}mo`;
+    } else {
+      formattedDate = `in ${futureDays}d`;
+    }
+  }
+
+  // Format full date (e.g., "March 24, 2025")
   const fullDate = targetDate.toLocaleString("en-us", {
     month: "long",
     day: "numeric",
     year: "numeric",
   });
 
-  if (!includeRelative) {
-    return fullDate;
-  }
-
-  return `${fullDate} (${formattedDate})`;
+  return includeRelative ? `${fullDate} (${formattedDate})` : fullDate;
 }
